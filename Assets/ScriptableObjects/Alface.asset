@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb82585d106a134892d836bbd37233e, type: 3}
+  m_Name: Alface
+  m_EditorClassIdentifier: 
+  nomeCultura: Arroz
+  tipoItem: 0
+  diasParaCrescer: 3
+  spriteSemente: {fileID: 4861662748524225573, guid: 184a26bb1043445499012e635c99db7b, type: 3}
+  spriteBroto: {fileID: -5066668921399660160, guid: 184a26bb1043445499012e635c99db7b, type: 3}
+  spriteAdulta: {fileID: -317592646122885040, guid: 184a26bb1043445499012e635c99db7b, type: 3}
+  spritePronta: {fileID: -6289053032045062706, guid: 184a26bb1043445499012e635c99db7b, type: 3}
+  quantidadeColhida: 2
+  custoEnergia: 1
+  desgasteSolo: 0.3
+  necessidadeAgua: 0.5

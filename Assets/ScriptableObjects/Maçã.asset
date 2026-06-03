@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb82585d106a134892d836bbd37233e, type: 3}
+  m_Name: "Ma\xE7\xE3"
+  m_EditorClassIdentifier: 
+  nomeCultura: Arroz
+  tipoItem: 0
+  diasParaCrescer: 5
+  spriteSemente: {fileID: 8369948372191450990, guid: 184a26bb1043445499012e635c99db7b, type: 3}
+  spriteBroto: {fileID: -1425678829478245854, guid: 74900c03a5e2d0141aee7781239f5da5, type: 3}
+  spriteAdulta: {fileID: 8578180459406042070, guid: 184a26bb1043445499012e635c99db7b, type: 3}
+  spritePronta: {fileID: -6528892960639380785, guid: 42b313c1cc8498a4fa0e5ffa194d4b5a, type: 3}
+  quantidadeColhida: 6
+  custoEnergia: 1
+  desgasteSolo: 0.3
+  necessidadeAgua: 0.5
