@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 499e09cad13d44e449cab77ce06cd71f
+guid: d5a0ee575c6550a4baeb5fc758f929a1
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -445,10 +445,10 @@ TextureImporter:
       name: vectoraith_tileset_farmingsims_details_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 160
-        width: 16
-        height: 16
+        x: 47
+        y: 159
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -473,7 +473,7 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 1, y: 0, z: 1, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -489,9 +489,9 @@ TextureImporter:
       name: vectoraith_tileset_farmingsims_details_11
       rect:
         serializedVersion: 2
-        x: 112
+        x: 111
         y: 175
-        width: 15
+        width: 34
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -512,9 +512,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 127
-        y: 176
-        width: 18
-        height: 15
+        y: 159
+        width: 50
+        height: 33
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2069,94 +2069,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: vectoraith_tileset_farmingsims_details_83
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 177
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63f3ffba351fe4a48b5e1b5f3d201c0d
-      internalID: -1085416402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vectoraith_tileset_farmingsims_details_84
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0b7331ec76502a45ba8a004b297be4e
-      internalID: -505152224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vectoraith_tileset_farmingsims_details_85
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 160
-        width: 17
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e13156ee45da9849a989ccea6c1a73b
-      internalID: 1130515267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: vectoraith_tileset_farmingsims_details_86
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 160
-        width: 30
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a204fc712ec483047abe6e3915784795
-      internalID: -721599510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2253,10 +2165,6 @@ TextureImporter:
       vectoraith_tileset_farmingsims_details_80: -202190124
       vectoraith_tileset_farmingsims_details_81: -1088259366
       vectoraith_tileset_farmingsims_details_82: 929580193
-      vectoraith_tileset_farmingsims_details_83: -1085416402
-      vectoraith_tileset_farmingsims_details_84: -505152224
-      vectoraith_tileset_farmingsims_details_85: 1130515267
-      vectoraith_tileset_farmingsims_details_86: -721599510
       vectoraith_tileset_farmingsims_details_9: -8216214253702897899
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

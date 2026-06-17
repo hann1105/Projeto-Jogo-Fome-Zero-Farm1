@@ -4,37 +4,49 @@ using UnityEngine;
 
 public class Movimento : MonoBehaviour
 {
-    public float speed;
-
+    public float speed = 2f;
     public Animator animator;
+
+    private Rigidbody2D rb;
+    private Vector2 direcao;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+        }
+    }
 
     private void Update()
     {
-        float horizontal=Input.GetAxisRaw("Horizontal");
-        float vertical=Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 direcao=new Vector3(horizontal,vertical);
+        direcao = new Vector2(horizontal, vertical).normalized;
 
         AnimateMovement(direcao);
-
-        transform.position += direcao*speed *Time.deltaTime;  
     }
 
-    void AnimateMovement(Vector3 direcao)
+    private void FixedUpdate()
     {
-        if(animator!= null)
-        {
-            if(direcao.magnitude>0)
-            {
-                animator.SetBool("isMoving",true);
+        rb.MovePosition(rb.position + direcao * speed * Time.fixedDeltaTime);
+    }
 
-                animator.SetFloat("horizontal",direcao.x);
-                animator.SetFloat("vertical",direcao.y);
-            }
-            else
-            {
-                animator.SetBool("isMoving",false);
-            }
+    private void AnimateMovement(Vector2 direcao)
+    {
+        if (animator == null) return;
+
+        bool isMoving = direcao.sqrMagnitude > 0;
+
+        animator.SetBool("isMoving", isMoving);
+
+        if (isMoving)
+        {
+            animator.SetFloat("horizontal", direcao.x);
+            animator.SetFloat("vertical", direcao.y);
         }
     }
 }
