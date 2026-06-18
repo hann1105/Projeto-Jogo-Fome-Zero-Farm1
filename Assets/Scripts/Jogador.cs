@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Jogador : MonoBehaviour
 {
+    public Inventario inventario;
 
-    public int numMacas = 0;
-
-
+    private void Awake()
+    {
+        inventario = GetComponent<Inventario>();
+    }
 }
