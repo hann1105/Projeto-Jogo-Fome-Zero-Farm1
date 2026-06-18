@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Inventario : MonoBehaviour
 {
-    public int numSlots = 21;
+    public int numSlots = 24;
 
     [System.Serializable]
     public class Slot
@@ -11,17 +12,26 @@ public class Inventario : MonoBehaviour
         public TipoColetavel tipo;
         public int quantidade;
         public int maxPermitido;
+        public Sprite icon;
 
         public Slot()
         {
             tipo = TipoColetavel.NONE;
             quantidade = 0;
             maxPermitido = 10;
+            icon = null;
         }
 
         public bool PodeAdicionar()
         {
             return quantidade < maxPermitido;
+        }
+
+        public void AdicionarItem(Coletavel item)
+        {
+            tipo = item.tipo;
+            icon = item.icon;
+            quantidade++;
         }
     }
 
@@ -37,18 +47,14 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void AdicionarItem(TipoColetavel tipo, int quantidade)
+    public void Add(Coletavel item)
     {
         foreach (Slot slot in slots)
         {
-            if (slot.tipo == tipo && slot.PodeAdicionar())
+            if (slot.tipo == item.tipo && slot.PodeAdicionar())
             {
-                int quantidadeAdicionada = Mathf.Min(quantidade, slot.maxPermitido - slot.quantidade);
-                slot.quantidade += quantidadeAdicionada;
-                quantidade -= quantidadeAdicionada;
-
-                if (quantidade <= 0)
-                    return;
+                slot.AdicionarItem(item);
+                return;
             }
         }
 
@@ -56,13 +62,8 @@ public class Inventario : MonoBehaviour
         {
             if (slot.tipo == TipoColetavel.NONE)
             {
-                int quantidadeAdicionada = Mathf.Min(quantidade, slot.maxPermitido);
-                slot.tipo = tipo;
-                slot.quantidade = quantidadeAdicionada;
-                quantidade -= quantidadeAdicionada;
-
-                if (quantidade <= 0)
-                    return;
+                slot.AdicionarItem(item);
+                return;
             }
         }
     }

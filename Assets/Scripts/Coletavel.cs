@@ -5,16 +5,16 @@ using UnityEngine;
 public class Coletavel : MonoBehaviour
 {
     public TipoColetavel tipo;
-    public int quantidade = 1;
+    public Sprite icon;
 
     private void OnTriggerEnter2D(Collider2D colisao)
     {
         Jogador jogador = colisao.GetComponent<Jogador>();
 
-        if (jogador != null)
+        if (jogador)
         {
-            jogador.inventario.AdicionarItem(tipo, quantidade);
-            Destroy(gameObject);
+            jogador.inventario.Add(this);
+            Destroy(this.gameObject);
         }
     }
 }
