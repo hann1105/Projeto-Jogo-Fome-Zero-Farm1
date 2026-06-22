@@ -6,7 +6,11 @@ public class Coletavel : MonoBehaviour
 {
     public TipoColetavel tipo;
     public Sprite icon;
-
+    public Rigidbody2D rb2d;
+    private void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
     private void OnTriggerEnter2D(Collider2D colisao)
     {
         Jogador jogador = colisao.GetComponent<Jogador>();

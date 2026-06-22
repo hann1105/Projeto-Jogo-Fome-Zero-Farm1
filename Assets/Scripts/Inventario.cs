@@ -33,6 +33,20 @@ public class Inventario : MonoBehaviour
             icon = item.icon;
             quantidade++;
         }
+        
+        public void RemoverItem()
+        {
+            if(quantidade > 0)
+            {
+                quantidade--;
+
+                if(quantidade == 0)
+                {
+                    icon = null;
+                    tipo = TipoColetavel.NONE;
+                }
+            }
+        }
     }
 
     public List<Slot> slots = new List<Slot>();
@@ -66,5 +80,10 @@ public class Inventario : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void Remove(int index)
+    {
+        slots[index].RemoverItem();
     }
 }

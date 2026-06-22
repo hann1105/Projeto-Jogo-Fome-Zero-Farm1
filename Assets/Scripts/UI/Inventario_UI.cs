@@ -22,7 +22,7 @@ public class Inventario_UI : MonoBehaviour
         if(!panelInventario.activeSelf)
         {
             panelInventario.SetActive(true);
-            Setup();
+            Refresh();
         }
         else
         {
@@ -37,7 +37,7 @@ public class Inventario_UI : MonoBehaviour
     panelInventario.SetActive(false); // garante que começa fechado
 }
 
-   void Setup()
+   void Refresh()
 {
     // ADICIONA ESSE LOG para debugar
     if (slots.Count != jogador.inventario.slots.Count)
@@ -54,5 +54,19 @@ public class Inventario_UI : MonoBehaviour
             slots[i].SetEmpty();
     }
 }
+
+public void Remove(int slotID)
+    {
+        // Buscando o item no nosso Gerenciador usando as variáveis em português
+        Coletavel itemParaDropar = GerenciadorJogo.instance.gerenciadorItem.ObterItemPorTipo(
+            jogador.inventario.slots[slotID].tipo);
+        
+        if(itemParaDropar != null)
+        {
+            jogador.DroparItem(itemParaDropar);
+            jogador.inventario.Remove(slotID);
+            Refresh(); 
+        }
+    }
 
 }

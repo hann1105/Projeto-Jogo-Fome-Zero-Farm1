@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6558708365984848837}
   - component: {fileID: 1836027062681136432}
   - component: {fileID: 4026044582718124538}
+  - component: {fileID: 984776555437980023}
   m_Layer: 0
   m_Name: Coletavel
   m_TagString: Untagged
@@ -149,3 +150,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipo: 1
   icon: {fileID: 3483859434839241108, guid: 00d4775d7ae5a514d8d320ea26ec2927, type: 3}
+  rb2d: {fileID: 0}
+--- !u!50 &984776555437980023
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728545584488747796}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 5
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
