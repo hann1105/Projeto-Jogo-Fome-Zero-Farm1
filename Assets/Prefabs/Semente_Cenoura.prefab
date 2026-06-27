@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5370590833250742836}
   - component: {fileID: 8416977355225658866}
   - component: {fileID: 4083005320497543433}
+  - component: {fileID: 6010723847089951675}
   m_Layer: 0
   m_Name: Semente_Cenoura
   m_TagString: Untagged
@@ -102,9 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f554104c954cb848acab395e1621651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipo: 2
-  icon: {fileID: -4857783850610417842, guid: 3a0ae432e82043148a231d2bbc43b0d4, type: 3}
-  rb2d: {fileID: 0}
 --- !u!61 &8416977355225658866
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,3 +176,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6010723847089951675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065764704947494955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259975a052f661f4786ecdbfb009a280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: b87131eabbde2a64a9cacd87dfaf44df, type: 2}
+  rb2d: {fileID: 0}

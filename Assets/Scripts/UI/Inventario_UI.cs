@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +7,12 @@ public class Inventario_UI : MonoBehaviour
     public Jogador jogador;
     public List<Slot_UI> slots = new List<Slot_UI>();
 
-    void Update()
+    private void Awake()
+    {
+        panelInventario.SetActive(false);
+    }
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -18,8 +22,7 @@ public class Inventario_UI : MonoBehaviour
 
     public void ToggleInventario()
     {
-        
-        if(!panelInventario.activeSelf)
+        if (!panelInventario.activeSelf)
         {
             panelInventario.SetActive(true);
             Refresh();
@@ -28,45 +31,39 @@ public class Inventario_UI : MonoBehaviour
         {
             panelInventario.SetActive(false);
         }
-
-
     }
 
-    private void Awake()
-{
-    panelInventario.SetActive(false); // garante que começa fechado
-}
-
-   void Refresh()
-{
-    // ADICIONA ESSE LOG para debugar
-    if (slots.Count != jogador.inventario.slots.Count)
+    private void Refresh()
     {
-        Debug.LogError($"Slots UI: {slots.Count} | Slots inventário: {jogador.inventario.slots.Count} — números diferentes!");
-        return;
-    }
-
-    for (int i = 0; i < slots.Count; i++)
-    {
-        if (jogador.inventario.slots[i].tipo != TipoColetavel.NONE)
-            slots[i].SetItem(jogador.inventario.slots[i]);
-        else
-            slots[i].SetEmpty();
-    }
-}
-
-public void Remove(int slotID)
-    {
-        // Buscando o item no nosso Gerenciador usando as variáveis em português
-        Coletavel itemParaDropar = GerenciadorJogo.instance.gerenciadorItem.ObterItemPorTipo(
-            jogador.inventario.slots[slotID].tipo);
-        
-        if(itemParaDropar != null)
+        if (slots.Count != jogador.inventario.slots.Count)
         {
-            jogador.DroparItem(itemParaDropar);
-            jogador.inventario.Remove(slotID);
-            Refresh(); 
+            Debug.LogError($"Slots UI: {slots.Count} | Slots inventario: {jogador.inventario.slots.Count} - numeros diferentes!");
+            return;
+        }
+
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (jogador.inventario.slots[i].itemName != "")
+            {
+                slots[i].SetItem(jogador.inventario.slots[i]);
+            }
+            else
+            {
+                slots[i].SetEmpty();
+            }
         }
     }
 
+    public void Remove(int slotID)
+    {
+        Item itemParaDropar = GerenciadorJogo.instance.gerenciadorItem.ObterItemPorNome(
+            jogador.inventario.slots[slotID].itemName);
+
+        if (itemParaDropar != null)
+        {
+            jogador.DroparItem(itemParaDropar);
+            jogador.inventario.Remove(slotID);
+            Refresh();
+        }
+    }
 }

@@ -5,6 +5,7 @@ public class GerenciadorJogo : MonoBehaviour
     public static GerenciadorJogo instance;
     
     public GerenciadorItem gerenciadorItem;
+    public GerenciadorDeBlocos gerenciadorDeBlocos;
 
     public void Awake()
     {
@@ -20,5 +21,6 @@ public class GerenciadorJogo : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         gerenciadorItem = GetComponent<GerenciadorItem>();
+        gerenciadorDeBlocos = GetComponent<GerenciadorDeBlocos>();
     }
 }

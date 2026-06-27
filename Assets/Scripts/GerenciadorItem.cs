@@ -3,36 +3,35 @@ using System.Collections.Generic;
 
 public class GerenciadorItem : MonoBehaviour
 {
-    public Coletavel[] itensColetaveis;
+    public Item[] items;
 
-    private Dictionary<TipoColetavel, Coletavel> dicionarioItens = 
-        new Dictionary<TipoColetavel, Coletavel>();
+    private Dictionary<string, Item> nomePraItemDict = 
+        new Dictionary<string, Item>();
 
     private void Awake()
     {
-        foreach(Coletavel item in itensColetaveis)
+        foreach(Item item in items)
         {
           AdicionarItem(item);  
         }
     }
 
-    private void AdicionarItem(Coletavel item)
+    private void AdicionarItem(Item item)
     {
         // Alterado de Constainskey para ContainsKey
-        if (!dicionarioItens.ContainsKey(item.tipo))
+        if (!nomePraItemDict.ContainsKey(item.Data.itemName))
         {
-            dicionarioItens.Add(item.tipo, item);
+            nomePraItemDict.Add(item.Data.itemName, item);
         }
     }
 
-    public Coletavel ObterItemPorTipo(TipoColetavel tipo)
+    public Item ObterItemPorNome(string key)
     {
-        if (dicionarioItens.ContainsKey(tipo))
+        if (nomePraItemDict.ContainsKey(key))
         {
-            return dicionarioItens[tipo];
+            return nomePraItemDict[key];
         }
         return null;
     }
 }
-
 

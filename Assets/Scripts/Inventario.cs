@@ -9,28 +9,32 @@ public class Inventario : MonoBehaviour
     [System.Serializable]
     public class Slot
     {
-        public TipoColetavel tipo;
+        public string itemName;
         public int quantidade;
         public int maxPermitido;
         public Sprite icon;
 
         public Slot()
         {
-            tipo = TipoColetavel.NONE;
+            itemName = "";
             quantidade = 0;
-            maxPermitido = 10;
-            icon = null;
+            maxPermitido = 9;
+           
         }
 
         public bool PodeAdicionar()
         {
-            return quantidade < maxPermitido;
+            if (quantidade < maxPermitido)
+            {
+                return true;
+            }
+            return false;
         }
 
-        public void AdicionarItem(Coletavel item)
+        public void AdicionarItem(Item item)
         {
-            tipo = item.tipo;
-            icon = item.icon;
+            this.itemName = item.Data.itemName;
+            this.icon = item.Data.icon;
             quantidade++;
         }
         
@@ -43,7 +47,7 @@ public class Inventario : MonoBehaviour
                 if(quantidade == 0)
                 {
                     icon = null;
-                    tipo = TipoColetavel.NONE;
+                    itemName = "";
                 }
             }
         }
@@ -61,11 +65,11 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void Add(Coletavel item)
+    public void Add(Item item)
     {
         foreach (Slot slot in slots)
         {
-            if (slot.tipo == item.tipo && slot.PodeAdicionar())
+            if (slot.itemName == item.Data.itemName && slot.PodeAdicionar())
             {
                 slot.AdicionarItem(item);
                 return;
@@ -74,7 +78,7 @@ public class Inventario : MonoBehaviour
 
         foreach (Slot slot in slots)
         {
-            if (slot.tipo == TipoColetavel.NONE)
+            if (slot.itemName == "")
             {
                 slot.AdicionarItem(item);
                 return;
