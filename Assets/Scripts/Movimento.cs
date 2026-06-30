@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movimento : MonoBehaviour
@@ -13,6 +11,9 @@ public class Movimento : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.freezeRotation = true;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
 
         if (animator == null)
         {
@@ -32,7 +33,15 @@ public class Movimento : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + direcao * speed * Time.fixedDeltaTime);
+        rb.linearVelocity = direcao * speed;
+    }
+
+    private void OnDisable()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     private void AnimateMovement(Vector2 direcao)

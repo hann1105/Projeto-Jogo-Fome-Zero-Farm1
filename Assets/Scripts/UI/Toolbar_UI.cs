@@ -1,33 +1,68 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Toolbar_UI : MonoBehaviour
 {
     [SerializeField] private List<Slot_UI> toolbarSlots = new List<Slot_UI>();
+    [SerializeField] private Jogador jogador;
 
     private Slot_UI selectedSlot;
 
+    public int SelectedIndex { get; private set; }
+
     private void Start()
     {
+        if (jogador == null)
+        {
+            jogador = FindObjectOfType<Jogador>();
+        }
+
         SelectSlot(0);
+        Refresh();
     }
 
     private void Update()
     {
         checkAlphaNumericKeys();
+        Refresh();
     }
 
     public void SelectSlot(int index)
     {
-        if (toolbarSlots.Count == 10)
+        if (index < 0 || index >= toolbarSlots.Count)
         {
-            if (selectedSlot != null)
+            return;
+        }
+
+        if (selectedSlot != null)
+        {
+            selectedSlot.setHighlight(false);
+        }
+
+        selectedSlot = toolbarSlots[index];
+        selectedSlot.setHighlight(true);
+        SelectedIndex = index;
+    }
+
+    public void Refresh()
+    {
+        if (jogador == null || jogador.inventario == null)
+        {
+            return;
+        }
+
+        int count = Mathf.Min(toolbarSlots.Count, jogador.inventario.slots.Count);
+        for (int i = 0; i < count; i++)
+        {
+            Inventario.Slot slot = jogador.inventario.slots[i];
+            if (slot.itemName != "")
             {
-                selectedSlot.setHighlight(false);
+                toolbarSlots[i].SetItem(slot);
             }
-            selectedSlot = toolbarSlots[index];
-            selectedSlot.setHighlight(true);
+            else
+            {
+                toolbarSlots[i].SetEmpty();
+            }
         }
     }
 

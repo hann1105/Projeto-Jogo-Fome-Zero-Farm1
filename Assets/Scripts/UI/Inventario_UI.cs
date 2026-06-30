@@ -7,9 +7,11 @@ public class Inventario_UI : MonoBehaviour
     public Jogador jogador;
     public List<Slot_UI> slots = new List<Slot_UI>();
 
+    private bool inventarioAberto;
+
     private void Awake()
     {
-        panelInventario.SetActive(false);
+        SetInventarioAberto(false);
     }
 
     private void Update()
@@ -22,14 +24,21 @@ public class Inventario_UI : MonoBehaviour
 
     public void ToggleInventario()
     {
-        if (!panelInventario.activeSelf)
+        SetInventarioAberto(!inventarioAberto);
+
+        if (inventarioAberto)
         {
-            panelInventario.SetActive(true);
             Refresh();
         }
-        else
+    }
+
+    private void SetInventarioAberto(bool aberto)
+    {
+        inventarioAberto = aberto;
+
+        foreach (Transform child in transform)
         {
-            panelInventario.SetActive(false);
+            child.gameObject.SetActive(aberto);
         }
     }
 
@@ -43,6 +52,11 @@ public class Inventario_UI : MonoBehaviour
 
         for (int i = 0; i < slots.Count; i++)
         {
+            if (slots[i] == null)
+            {
+                continue;
+            }
+
             if (jogador.inventario.slots[i].itemName != "")
             {
                 slots[i].SetItem(jogador.inventario.slots[i]);

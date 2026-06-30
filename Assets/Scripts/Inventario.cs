@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 
 public class Inventario : MonoBehaviour
@@ -13,42 +12,49 @@ public class Inventario : MonoBehaviour
         public int quantidade;
         public int maxPermitido;
         public Sprite icon;
+        public ItemData itemData;
 
         public Slot()
         {
             itemName = "";
             quantidade = 0;
             maxPermitido = 9;
-           
+            icon = null;
+            itemData = null;
         }
 
         public bool PodeAdicionar()
         {
-            if (quantidade < maxPermitido)
-            {
-                return true;
-            }
-            return false;
+            return quantidade < maxPermitido;
         }
 
         public void AdicionarItem(Item item)
         {
-            this.itemName = item.Data.itemName;
-            this.icon = item.Data.icon;
+            AdicionarItem(item.Data);
+        }
+
+        public void AdicionarItem(ItemData data)
+        {
+            itemData = data;
+            itemName = data.itemName;
+            icon = data.icon;
             quantidade++;
         }
-        
+
         public void RemoverItem()
         {
-            if(quantidade > 0)
+            if (quantidade <= 0)
             {
-                quantidade--;
+                return;
+            }
 
-                if(quantidade == 0)
-                {
-                    icon = null;
-                    itemName = "";
-                }
+            quantidade--;
+
+            if (quantidade == 0)
+            {
+                icon = null;
+                itemName = "";
+                itemData = null;
             }
         }
     }
@@ -67,11 +73,21 @@ public class Inventario : MonoBehaviour
 
     public void Add(Item item)
     {
+        Add(item.Data);
+    }
+
+    public void Add(ItemData itemData)
+    {
+        if (itemData == null)
+        {
+            return;
+        }
+
         foreach (Slot slot in slots)
         {
-            if (slot.itemName == item.Data.itemName && slot.PodeAdicionar())
+            if (slot.itemName == itemData.itemName && slot.PodeAdicionar())
             {
-                slot.AdicionarItem(item);
+                slot.AdicionarItem(itemData);
                 return;
             }
         }
@@ -80,7 +96,7 @@ public class Inventario : MonoBehaviour
         {
             if (slot.itemName == "")
             {
-                slot.AdicionarItem(item);
+                slot.AdicionarItem(itemData);
                 return;
             }
         }
@@ -88,6 +104,20 @@ public class Inventario : MonoBehaviour
 
     public void Remove(int index)
     {
-        slots[index].RemoverItem();
+        Slot slot = GetSlot(index);
+        if (slot != null)
+        {
+            slot.RemoverItem();
+        }
+    }
+
+    public Slot GetSlot(int index)
+    {
+        if (index < 0 || index >= slots.Count)
+        {
+            return null;
+        }
+
+        return slots[index];
     }
 }

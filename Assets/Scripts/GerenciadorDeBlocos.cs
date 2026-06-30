@@ -1,29 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 public class GerenciadorDeBlocos : MonoBehaviour
 {
-    [SerializeField] private Tilemap interactableMap; // Referência ao Tilemap
+    [SerializeField] private Tilemap interactableMap;
+    [SerializeField] private Tile hiddenInteractableTile;
 
-    [SerializeField] private Tile hiddenInteractableTile; // Referência ao Tilemap invisível
-    void Start()
+    private readonly HashSet<Vector3Int> interactablePositions = new HashSet<Vector3Int>();
+
+    private void Awake()
     {
-        foreach(var pos in interactableMap.cellBounds.allPositionsWithin)
+        if (interactableMap == null)
         {
-            interactableMap.SetTile(pos, hiddenInteractableTile);
+            return;
+        }
 
+        TilemapRenderer tilemapRenderer = interactableMap.GetComponent<TilemapRenderer>();
+        if (tilemapRenderer != null)
+        {
+            tilemapRenderer.enabled = false;
+        }
+
+        foreach (var pos in interactableMap.cellBounds.allPositionsWithin)
+        {
+            TileBase tile = interactableMap.GetTile(pos);
+
+            if (tile != null && (hiddenInteractableTile == null || tile == hiddenInteractableTile))
+            {
+                interactablePositions.Add(pos);
+                interactableMap.SetTile(pos, null);
+            }
         }
     }
+
     public bool isInteractable(Vector3Int pos)
     {
-        TileBase tile = interactableMap.GetTile(pos);
-        if (tile != null && tile.name == "Interactable")
-        {
-            return true;
-        }
-        return false;
+        return interactablePositions.Contains(pos);
     }
 
+    public Vector3 GetCellOriginWorld(Vector3Int pos)
+    {
+        if (interactableMap == null)
+        {
+            return pos;
+        }
+
+        return interactableMap.CellToWorld(pos);
+    }
+
+    public Vector3Int WorldToCell(Vector3 worldPosition)
+    {
+        if (interactableMap == null)
+        {
+            return Vector3Int.FloorToInt(worldPosition);
+        }
+
+        return interactableMap.WorldToCell(worldPosition);
+    }
 }

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38750d37314c37b4db9586765c6cb613, type: 3}
-  m_Name: Semente_Cenoura
+  m_Name: Cenoura
   m_EditorClassIdentifier: 
-  itemName: Sementes Cenoura
-  icon: {fileID: -4857783850610417842, guid: 3a0ae432e82043148a231d2bbc43b0d4, type: 3}
-  cropData: {fileID: 11400000, guid: a1111111111111111111111111111111, type: 2}
+  itemName: Cenoura
+  icon: {fileID: -2500840989102744712, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
+  cropData: {fileID: 0}
