@@ -49,6 +49,16 @@ public class GerenciadorDeBlocos : MonoBehaviour
         return interactableMap.CellToWorld(pos);
     }
 
+    public Vector3 GetCellCenterWorld(Vector3Int pos)
+    {
+        if (interactableMap == null)
+        {
+            return pos + new Vector3(0.5f, 0.5f, 0f);
+        }
+
+        return interactableMap.GetCellCenterWorld(pos);
+    }
+
     public Vector3Int WorldToCell(Vector3 worldPosition)
     {
         if (interactableMap == null)

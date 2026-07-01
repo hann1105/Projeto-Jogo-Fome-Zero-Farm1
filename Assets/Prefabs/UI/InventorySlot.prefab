@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33962262, g: 0.25636122, b: 0.18743324, a: 1}
+  m_Color: {r: 0.62, g: 0.45, b: 0.25, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -573,5 +573,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1d5d2bc51907341901ee925395a8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotBackground: {fileID: 7081375793041701095}
   itemIcon: {fileID: 779789188221073627}
   quantidadeText: {fileID: 8283409396061698194}
+  Highlight: {fileID: 0}
+  removeButton: {fileID: 3045096501394535396}
+  inventorySlotColor: {r: 0.62, g: 0.45, b: 0.25, a: 1}
+  inventorySlotBorderColor: {r: 0.27, g: 0.18, b: 0.1, a: 1}

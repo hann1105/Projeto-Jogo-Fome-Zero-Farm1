@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class PlantedCrop : MonoBehaviour
 {
     private CropData cropData;
@@ -13,7 +12,7 @@ public class PlantedCrop : MonoBehaviour
 
     public bool IsReadyToHarvest
     {
-        get { return currentStage >= cropData.StageCount - 1; }
+        get { return cropData != null && currentStage >= cropData.StageCount - 1; }
     }
 
     public void Initialize(CropData data, Vector3Int cellPosition, Sprite seedSprite)
@@ -23,7 +22,9 @@ public class PlantedCrop : MonoBehaviour
         fallbackSprite = seedSprite;
         plantedAt = Time.time;
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        GameObject visualObject = new GameObject("Visual");
+        visualObject.transform.SetParent(transform, false);
+        spriteRenderer = visualObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = cropData.sortingOrder;
 
         UpdateStage(force: true);
@@ -76,7 +77,17 @@ public class PlantedCrop : MonoBehaviour
         }
 
         currentStage = stage;
-        spriteRenderer.sprite = GetSpriteForStage(stage);
+        SetSprite(GetSpriteForStage(stage));
+    }
+
+    private void SetSprite(Sprite sprite)
+    {
+        spriteRenderer.sprite = sprite;
+
+        if (sprite != null)
+        {
+            spriteRenderer.transform.localPosition = -sprite.bounds.center;
+        }
     }
 
     private Sprite GetSpriteForStage(int stage)

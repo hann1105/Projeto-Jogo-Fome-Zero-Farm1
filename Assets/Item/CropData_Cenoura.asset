@@ -17,12 +17,12 @@ MonoBehaviour:
   - {fileID: -4802840846537101091, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
   - {fileID: 584397037035311946, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
   - {fileID: -586766407773966822, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
-  - {fileID: -2219228587167772166, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
+  - {fileID: -2500840989102744712, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
   secondsPerStage: 5
   harvestItem: {fileID: 11400000, guid: a2222222222222222222222222222222, type: 2}
   harvestAmount: 1
   bonusSeedItem: {fileID: 11400000, guid: b87131eabbde2a64a9cacd87dfaf44df, type: 2}
   bonusSeedAmount: 1
-  plantedOffset: {x: 0.15, y: 0.18, z: 0}
+  plantedOffset: {x: 0, y: 0, z: 0}
   plantedScale: {x: 1.8, y: 1.8, z: 1}
   sortingOrder: 1

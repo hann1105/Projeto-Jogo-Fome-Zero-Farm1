@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c58a9f8fdbe4dc4bb5f4fd6e2e8e601, type: 3}
+  m_Name: CropData_Batata
+  m_EditorClassIdentifier: 
+  cropName: Batata
+  growthStageSprites:
+  - {fileID: 1296312912989546503, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
+  - {fileID: -4788427061394280135, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
+  - {fileID: 4554440884384280804, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
+  - {fileID: 3210690481590327898, guid: b4c05e24ae59d604b99799a65b07be04, type: 3}
+  secondsPerStage: 5
+  harvestItem: {fileID: 11400000, guid: c0000000000000000000000000000005, type: 2}
+  harvestAmount: 1
+  bonusSeedItem: {fileID: 11400000, guid: c0000000000000000000000000000004, type: 2}
+  bonusSeedAmount: 1
+  plantedOffset: {x: 0, y: 0, z: 0}
+  plantedScale: {x: 1.8, y: 1.8, z: 1}
+  sortingOrder: 1

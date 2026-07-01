@@ -50,9 +50,9 @@ public class GerenciadorDePlantacao : MonoBehaviour
     {
         if (GerenciadorJogo.instance != null && GerenciadorJogo.instance.gerenciadorDeBlocos != null)
         {
-            return GerenciadorJogo.instance.gerenciadorDeBlocos.GetCellOriginWorld(position) + cropData.plantedOffset;
+            return GerenciadorJogo.instance.gerenciadorDeBlocos.GetCellCenterWorld(position) + cropData.plantedOffset;
         }
 
-        return position + cropData.plantedOffset;
+        return position + new Vector3(0.5f, 0.5f, 0f) + cropData.plantedOffset;
     }
 }

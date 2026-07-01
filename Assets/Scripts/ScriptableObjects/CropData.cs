@@ -10,7 +10,7 @@ public class CropData : ScriptableObject
     public int harvestAmount = 1;
     public ItemData bonusSeedItem;
     public int bonusSeedAmount = 1;
-    public Vector3 plantedOffset = new Vector3(0.5f, 0.5f, 0f);
+    public Vector3 plantedOffset = Vector3.zero;
     public Vector3 plantedScale = Vector3.one;
     public int sortingOrder = 1;
 
