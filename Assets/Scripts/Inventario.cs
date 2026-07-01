@@ -111,6 +111,53 @@ public class Inventario : MonoBehaviour
         }
     }
 
+    public int RemovePorNome(string itemName, int quantidade)
+    {
+        if (string.IsNullOrEmpty(itemName) || quantidade <= 0)
+        {
+            return 0;
+        }
+
+        int removidos = 0;
+
+        foreach (Slot slot in slots)
+        {
+            while (slot.itemName == itemName && slot.quantidade > 0 && removidos < quantidade)
+            {
+                slot.RemoverItem();
+                removidos++;
+            }
+
+            if (removidos >= quantidade)
+            {
+                break;
+            }
+        }
+
+        return removidos;
+    }
+
+    public int RemoveTodosPorNome(string itemName)
+    {
+        if (string.IsNullOrEmpty(itemName))
+        {
+            return 0;
+        }
+
+        int removidos = 0;
+
+        foreach (Slot slot in slots)
+        {
+            while (slot.itemName == itemName && slot.quantidade > 0)
+            {
+                slot.RemoverItem();
+                removidos++;
+            }
+        }
+
+        return removidos;
+    }
+
     public Slot GetSlot(int index)
     {
         if (index < 0 || index >= slots.Count)

@@ -82,7 +82,7 @@ public class Inventario_UI : MonoBehaviour
         }
     }
 
-    private void Refresh()
+    public void Refresh()
     {
         if (jogador == null || jogador.inventario == null)
         {

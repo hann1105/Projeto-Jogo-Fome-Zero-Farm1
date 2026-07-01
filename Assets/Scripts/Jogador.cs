@@ -37,7 +37,6 @@ public class Jogador : MonoBehaviour
 
         if (GerenciadorJogo.instance.gerenciadorDePlantacao.TryHarvest(position, inventario))
         {
-            AdicionarPontos(5);
             AtualizarToolbar();
             return;
         }
@@ -63,16 +62,7 @@ public class Jogador : MonoBehaviour
         if (planted)
         {
             inventario.Remove(selectedIndex);
-            AdicionarPontos(5);
             AtualizarToolbar();
-        }
-    }
-
-    private void AdicionarPontos(int quantidade)
-    {
-        if (GerenciadorJogo.instance != null && GerenciadorJogo.instance.gerenciadorPontuacao != null)
-        {
-            GerenciadorJogo.instance.gerenciadorPontuacao.AdicionarPontos(quantidade);
         }
     }
 
